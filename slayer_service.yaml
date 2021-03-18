@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: slayer-service
+  labels:
+    app: slayer
+spec:
+  ports:
+    - name: metrics
+      port: 8000
+      protocol: TCP
+  selector:
+    app: slayer

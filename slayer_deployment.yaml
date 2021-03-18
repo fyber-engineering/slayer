@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: slayer
+  labels:
+    app: slayer
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: slayer
+  template:
+    metadata:
+      labels:
+        app: slayer
+    spec:
+      containers:
+        - name: slayer
+          image:  image:tag
+          ports:
+            - containerPort: 8000
+          env:
+            - name: POSTGRES_USER
+              value: "user"
+            - name: POSTGRES_PASSWORD
+              value: "password"
+            - name: POSTGRES_HOST
+              value: "host"
+            - name: POSTGRES_PORT
+              value: "5432"
+            - name: POSTGRES_DATABASE_NAME
+              value: "postgres"
